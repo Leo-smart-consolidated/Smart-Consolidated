@@ -408,7 +408,7 @@ with tab1:
     col1, col2, col3 = st.columns(3)
     col1.metric("NÚMERO DE PROVEEDORES", f"{qprov_fil}")
     col1.metric("CLAVES ADJUDICADAS", f"{qclaves_fil}")
-    col1.metric("IMPORTE TOTAL ADJUDICADO ($)", f"{"{:,.2f}".format(sum(df3["TOTAL"]))}")
+    col1.metric("IMPORTE TOTAL ADJUDICADO ($)","{:,.2f}".format(sum(df3["TOTAL"])))
 
     # Mostrar gráficos en columnas
     with col1:
