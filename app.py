@@ -336,14 +336,9 @@ with tab1:
     grnzrooted26 = grouping(nzrooted26)
     
     # Incluir imagen como encabezado
-    
-    from PIL import Image
-    
-    img = Image.open("header.png")
-
-    import os
-    st.write("Archivos en raíz:", os.listdir("."))
-    st.image(img, use_container_width=True)
+        
+    with open("header.png", "rb") as f:
+        st.image(f.read(), use_container_width=True)
     
     col1, col2, col3, col4 = st.columns(4)
     with col1:
