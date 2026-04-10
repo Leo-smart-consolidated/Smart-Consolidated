@@ -803,7 +803,11 @@ with tab3:
     col1, col2, col3 = st.columns(3)
    # col1.metric("NÚMERO DE PROVEEDORES", f"{prov_qprov_fil}")
     col1.metric("CLAVES ADJUDICADAS", f"{prov_qclaves_fil}")
-    col1.metric("IMPORTE TOTAL ADJUDICADO($)", f"{"{:,.2f}".format(sum(prov3["TOTAL"]))}")
+    col1.metric(
+    "IMPORTE TOTAL ADJUDICADO ($)",
+    "{:,.2f}".format(sum(hi5[name]))
+    )
+
     # Mostrar gráficos en columnas
     with col1:
         inst_a_proveer = instxproveer(prov4, p_selected_proveedor)
