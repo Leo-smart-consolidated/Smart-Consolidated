@@ -1,15 +1,15 @@
+
 import streamlit as st
 import pandas as pd
+import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-import numpy as np
-import warnings
 import altair as alt
 import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
+import warnings
 import base64
 from pathlib import Path
-import streamlit as st
+
 
 
 # Definimos funciones de Cálculo
