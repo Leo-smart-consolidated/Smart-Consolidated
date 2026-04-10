@@ -343,7 +343,7 @@ with tab1:
 
     import os
     st.write("Archivos en raíz:", os.listdir("."))
-    st.image(img, use_container_width=True
+    st.image(img, use_container_width=True)
     
     col1, col2, col3, col4 = st.columns(4)
     with col1:
