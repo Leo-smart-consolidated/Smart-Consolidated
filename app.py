@@ -861,5 +861,6 @@ with tab3:
     #st.dataframe(datos_filtrados)
     
 # Incluir imagen como pie de página
-st.image("footer.png", use_container_width=True)
+render_image_html("footer.png")
+
 
