@@ -11,17 +11,6 @@ import base64
 from pathlib import Path
 import streamlit as st
 
-def render_image_html(path: str):
-    data = Path(path).read_bytes()
-    encoded = base64.b64encode(data).decode()
-    ext = Path(path).suffix.replace(".", "")
-    html = f"""
-    <img src="data:image/{ext};base64,{encoded}" style="width:100%;" />
-    """
-    st.markdown(html, unsafe_allow_html=True)
-
-render_image_html("header.png")
-
 
 # Definimos funciones de Cálculo
 
@@ -350,7 +339,17 @@ with tab1:
     grnzrooted26 = grouping(nzrooted26)
     
     # Incluir imagen como encabezado
-        
+    def render_image_html(path: str):
+        data = Path(path).read_bytes()
+        encoded = base64.b64encode(data).decode()
+        ext = Path(path).suffix.replace(".", "")
+        html = f"""
+        <img src="data:image/{ext};base64,{encoded}" style="width:100%;" />
+        """
+        st.markdown(html, unsafe_allow_html=True)
+    
+    render_image_html("header.png")
+
     with open("header.png", "rb") as f:
         st.image(f.read(), use_container_width=True)
     
