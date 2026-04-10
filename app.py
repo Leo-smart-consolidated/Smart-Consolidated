@@ -349,9 +349,6 @@ with tab1:
         st.markdown(html, unsafe_allow_html=True)
     
     render_image_html("header.png")
-
-    with open("header.png", "rb") as f:
-        st.image(f.read(), use_container_width=True)
     
     col1, col2, col3, col4 = st.columns(4)
     with col1:
