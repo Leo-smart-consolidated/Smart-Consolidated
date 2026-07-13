@@ -123,19 +123,57 @@ def instxproveer(dats, proveedor):
 
 # Definimos funciones para crear gráficos
 def crear_pie(data):
-    data['Tipo'] = data['CLAVES'].apply(lambda x: 'Medicamento' if int(x.split('.')[0]) < 60 else 'Material de Curación')
-    return px.pie(data, names='Tipo', color='Tipo', color_discrete_map={'Medicamento': 'blue', 'Material de Curación': 'red'}, width=400, height=400)
+    data = data.copy()
+
+    data.loc[:, 'Tipo'] = data['CLAVES'].apply(
+        lambda x: 'Medicamento'
+        if int(str(x).split('.')[0]) < 60
+        else 'Material de Curación'
+    )
+
+    return px.pie(
+        data,
+        names='Tipo',
+        color='Tipo',
+        color_discrete_map={
+            'Medicamento': 'blue',
+            'Material de Curación': 'red'
+        },
+        width=400,
+        height=400
+    )
 
 def crear_hist(data):
-    data['Tipo'] = data['ABASTO'].apply(lambda x: 'Abastecimiento único' if x == 1 else 'Abastecimiento simultáneo')
-    fig = px.histogram(data, x='Tipo', color='Tipo', color_discrete_map={'Abastecimiento único': 'green', 'Abastecimiento simultáneo': 'yellow'}, width=400, height=400)
+    data = data.copy()
+
+    data.loc[:, 'Tipo'] = data['ABASTO'].apply(
+        lambda x: 'Abastecimiento único'
+        if x == 1
+        else 'Abastecimiento simultáneo'
+    )
+
+    fig = px.histogram(
+        data,
+        x='Tipo',
+        color='Tipo',
+        color_discrete_map={
+            'Abastecimiento único': 'green',
+            'Abastecimiento simultáneo': 'yellow'
+        },
+        width=400,
+        height=400
+    )
+
     fig.add_annotation(
         text="* El abastecimiento simultáneo se cuenta con multiplicidad",
-        xref="paper", yref="paper",
-        x=0.5, y=-.45,
+        xref="paper",
+        yref="paper",
+        x=0.5,
+        y=-0.45,
         showarrow=False,
         font=dict(size=12)
     )
+
     return fig
 
 def visualMonto(data_inst, data):
