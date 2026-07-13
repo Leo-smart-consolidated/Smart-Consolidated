@@ -3,6 +3,6 @@ matplotlib
 plotly
 openpyxl
 xlrd
-streamlit==1.33.0
+streamlit==1.47.1
 msal==1.28.0
 requests==2.31.0
